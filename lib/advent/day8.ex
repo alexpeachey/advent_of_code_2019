@@ -36,18 +36,14 @@ defmodule Advent.Day8 do
       |> String.trim()
       |> String.split("", trim: true)
       |> Enum.chunk_every(150)
-      |> Enum.map(&count_digit(&1, "0"))
-      |> Enum.min_by(fn {data, zeros} -> zeros end)
-      |> Tuple.to_list()
-      |> hd()
+      |> Enum.min_by(&count_digit(&1, "0"))
 
-    {layer, ones} = count_digit(layer, "1")
-    {layer, twos} = count_digit(layer, "2")
+    ones = count_digit(layer, "1")
+    twos = count_digit(layer, "2")
     ones * twos
   end
 
   def count_digit(data, digit) do
-    total = Enum.count(data, fn d -> d == digit end)
-    {data, total}
+    Enum.count(data, fn d -> d == digit end)
   end
 end
