@@ -1,7 +1,7 @@
 defmodule Advent.Day8 do
   @moduledoc """
-  Day 8:
-
+  Day 8: Space Image Format
+  Decode Images
   """
 
   def assemble_image() do
